@@ -2,7 +2,7 @@
 
 var control : CharacterController;
 var speed : float = 30;
-
+var speech : SpeechPopup;
 
 function Awake () {
 	if(control == null)
@@ -14,4 +14,6 @@ function Update () {
 	curSpeed = speed;
 	var move : Vector3 = Vector3(Input.GetAxis("Horizontal") * curSpeed * Time.deltaTime, Input.GetAxis("Vertical") * curSpeed * Time.deltaTime, 0);
 	control.Move(move);
+	if(Input.GetButton("Fire1"))
+		speech.PopupText("A man, a plan, a canal, Panama.");
 }
