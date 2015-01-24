@@ -465,6 +465,7 @@ GameObject:
   - 92: {fileID: 508629513}
   - 124: {fileID: 508629512}
   - 81: {fileID: 508629511}
+  - 114: {fileID: 508629516}
   m_Layer: 0
   m_Name: Camera1
   m_TagString: MainCamera
@@ -538,6 +539,19 @@ Transform:
   - {fileID: 1151190785}
   m_Father: {fileID: 1323104106}
   m_RootOrder: 1
+--- !u!114 &508629516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 508629510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c640d3563bd0b643b9a6463fb74bf34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1002615528}
+  followDistance: 15
 --- !u!1 &512621337
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +742,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 344451638}
   m_GameObject: {fileID: 581735001}
+  m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -744,7 +759,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -1071,7 +1085,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -1143,6 +1156,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 1341633727}
   m_GameObject: {fileID: 1151587056}
+  m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -1354,6 +1368,7 @@ GameObject:
   - 92: {fileID: 1699901709}
   - 124: {fileID: 1699901708}
   - 81: {fileID: 1699901707}
+  - 114: {fileID: 1699901711}
   m_Layer: 0
   m_Name: Camera2
   m_TagString: MainCamera
@@ -1426,3 +1441,16 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!114 &1699901711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1699901705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c640d3563bd0b643b9a6463fb74bf34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1265097556}
+  followDistance: 15
