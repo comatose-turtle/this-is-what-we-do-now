@@ -8,7 +8,6 @@ private var myCanvasGroup : CanvasGroup;
 
 function Start () {
 	myCanvasGroup = transform.parent.GetComponent.<CanvasGroup>();
-	Invoke("Popit", 2);
 }
 
 function Update () {
@@ -28,8 +27,4 @@ function PopupText(str : String) {
 	popupTime = Time.time;
 	//myText = str;
 	displayText.text = str;
-}
-
-function Popit() {
-	PopupText("Here I am!");
 }
