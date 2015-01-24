@@ -500,7 +500,12 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 508629514}
-    m_RemovedComponents: []
+    - target: {fileID: 11400010, guid: ef120a8704ff5324f819cdd50c1ea681, type: 2}
+      propertyPath: speed
+      value: 300
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 14300000, guid: ef120a8704ff5324f819cdd50c1ea681, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ef120a8704ff5324f819cdd50c1ea681, type: 2}
   m_RootGameObject: {fileID: 1002615524}
   m_IsPrefabParent: 0
@@ -530,7 +535,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 508629510}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &508629512
 Behaviour:
   m_ObjectHideFlags: 0
@@ -780,6 +785,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 344451638}
   m_GameObject: {fileID: 581735001}
+  m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -796,7 +802,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -853,7 +858,8 @@ GameObject:
   - 212: {fileID: 1002615527}
   - 95: {fileID: 1002615526}
   - 114: {fileID: 1002615529}
-  - 143: {fileID: 1002615530}
+  - 58: {fileID: 1002615530}
+  - 50: {fileID: 1002615525}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -861,6 +867,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!50 &1002615525
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1002615524}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!95 &1002615526
 Animator:
   serializedVersion: 3
@@ -925,24 +946,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f8481806872e04986b7d78df2889ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
-  speed: 30
+  speed: 300
   speech: {fileID: 512621341}
---- !u!143 &1002615530
-CharacterController:
+--- !u!58 &1002615530
+CircleCollider2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 14300000, guid: ef120a8704ff5324f819cdd50c1ea681,
-    type: 2}
-  m_PrefabInternal: {fileID: 428751658}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1002615524}
-  serializedVersion: 2
-  m_Height: 0
-  m_Radius: 0
-  m_SlopeLimit: 45
-  m_StepOffset: .300000012
-  m_SkinWidth: .0799999982
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .800000012
+  m_Center: {x: 0, y: .800000012}
 --- !u!1 &1056083854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1126,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -1182,6 +1197,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 428751658}
   m_GameObject: {fileID: 1151587056}
+  m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -1232,7 +1248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f8481806872e04986b7d78df2889ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: {fileID: 0}
   speed: 30
   speech: {fileID: 156311328}
 --- !u!95 &1265097554
@@ -1353,7 +1368,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1699901705}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1699901708
 Behaviour:
   m_ObjectHideFlags: 0

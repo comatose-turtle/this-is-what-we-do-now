@@ -1,19 +1,11 @@
 ﻿#pragma strict
 
-var control : CharacterController;
-var speed : float = 30;
+var speed : float = 400;
 var speech : SpeechPopup;
 
-function Awake () {
-	if(control == null)
-		control = gameObject.GetComponent(CharacterController);
-}
-
-function Update () {
-	var curSpeed : float;
-	curSpeed = speed;
-	var move : Vector3 = Vector3(Input.GetAxis("Horizontal") * curSpeed * Time.deltaTime, Input.GetAxis("Vertical") * curSpeed * Time.deltaTime, 0);
-	control.Move(move);
+function FixedUpdate () {
+	var move : Vector3 = Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0);
+	rigidbody2D.velocity = move;
 	if(Input.GetButton("Fire1"))
 		speech.PopupText("A man, a plan, a canal, Panama.");
 }
