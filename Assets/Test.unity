@@ -479,6 +479,7 @@ GameObject:
   - 4: {fileID: 284676154}
   - 114: {fileID: 284676153}
   - 114: {fileID: 284676156}
+  - 114: {fileID: 284676157}
   - 114: {fileID: 284676155}
   m_Layer: 0
   m_Name: GameMaster
@@ -514,7 +515,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &284676155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,6 +537,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfc8f0616ab2c874993797ce7771d803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &284676157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 74c134cfd495085418d66a65f9bfea93,
+    type: 2}
+  m_PrefabInternal: {fileID: 1819681363}
+  m_GameObject: {fileID: 284676152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9d27781ffb73449b62d222c710f86f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &312576569
@@ -1507,7 +1520,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
       propertyPath: m_Color.r
@@ -2292,4 +2305,4 @@ Transform:
   - {fileID: 42759644}
   - {fileID: 1958945568}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
