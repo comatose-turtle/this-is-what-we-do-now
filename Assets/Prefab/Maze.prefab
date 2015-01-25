@@ -221,7 +221,7 @@ GameObject:
   - 65: {fileID: 6555926}
   m_Layer: 0
   m_Name: AreaOfDeath
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -241,7 +241,7 @@ GameObject:
   - 64: {fileID: 6456622}
   m_Layer: 0
   m_Name: Wall-Circle-Rotate
-  m_TagString: Untagged
+  m_TagString: Push
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
