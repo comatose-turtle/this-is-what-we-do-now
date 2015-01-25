@@ -13,7 +13,7 @@ function Start () {
 }
 
 function Update () {
-	if(Input.GetButtonDown("Fire2")) {
+	if(Input.GetButtonDown("Fire2") && selectedGroup == bPromptGroup) {
 		selectedGroup = myCanvasGroup;
 		popupTime = -1;
 	}

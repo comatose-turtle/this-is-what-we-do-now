@@ -3,8 +3,11 @@
 var speed : float = 400;
 var speech : SpeechPopup;
 var control : CharacterController;
+var holdNode : Transform;
 
 private var animator : Animator;
+private var isActivatingItem : boolean = false;
+private var holdingThis : GameObject;
 
 function Start () {
 	if(!control)
@@ -13,11 +16,15 @@ function Start () {
 }
 
 function Update () {
+	isActivatingItem = false;
+	
 	var move : Vector3 = Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime);
 	control.Move(move);
 	AdjustSprite(move);
-	if(Input.GetButton("Fire1"))
-		speech.PopupText("A man, a plan, a canal, Panama.");
+	if(Input.GetButtonDown("Fire1"))
+		GameMaster.instance.SendMessage("LinePlease", gameObject);
+	if(Input.GetButtonDown("Fire3") && holdingThis != null)
+		GameMaster.instance.SendMessage("UseItem", [gameObject, holdingThis]);
 }
 
 function MakeMeSay(str : String) {
@@ -44,4 +51,11 @@ private function AdjustSprite(moveVec : Vector3) {
 	}
 	
 	animator.SetInteger("dir", angel);
+}
+
+function HoldThis(thing : GameObject) {
+	holdingThis = thing;
+	thing.transform.SetParent(holdNode);
+	thing.transform.localPosition = Vector3.zero;
+	thing.collider.enabled = false;
 }
