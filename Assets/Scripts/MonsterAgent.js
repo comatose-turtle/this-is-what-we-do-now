@@ -15,3 +15,8 @@ function Update () {
 		_navAgent.destination= AttackObject.position;
 	}
 }
+
+function OnTriggerEnter(other : Collider) {
+	if(other.tag == "Player")
+		GameMaster.instance.SendMessage("CollisionDecision", [other.gameObject, gameObject]);
+}

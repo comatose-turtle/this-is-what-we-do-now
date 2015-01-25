@@ -75,26 +75,22 @@ private function PromptForB() {
 	messageBuffer = Time.time;
 }
 
-private function WinGame() {
+private function MakePlayersSayAThing(str : String) {
 	if(Time.time < messageBuffer + 3)
 		return;
 	
 	var players = GameObject.FindGameObjectsWithTag("Player");
 	for(var player : GameObject in players) {
-		player.GetComponent.<WhatTheCharacterDoes>().MakeMeSay("I win!!!");
+		player.GetComponent.<WhatTheCharacterDoes>().MakeMeSay(str);
 	}
 	
 	messageBuffer = Time.time;
 }
 
+private function WinGame() {
+	Application.LoadLevel("WinScene");
+}
+
 private function LoseGame() {
-	if(Time.time < messageBuffer + 3)
-		return;
-	
-	var players = GameObject.FindGameObjectsWithTag("Player");
-	for(var player : GameObject in players) {
-		player.GetComponent.<WhatTheCharacterDoes>().MakeMeSay("Argh!! I lose!!!");
-	}
-	
-	messageBuffer = Time.time;
+	Application.LoadLevel("LoseScene");
 }
