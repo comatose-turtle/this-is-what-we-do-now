@@ -2,6 +2,7 @@
 
 private var progress : int;
 private var switches : boolean[] = [false, false];
+private var messageBuffer : float;
 
 function Start () {
 
@@ -55,15 +56,25 @@ function UncollisionDecision(objs : GameObject[]) {
 }
 
 private function WinGame() {
+	if(Time.time < messageBuffer + 3)
+		return false;
+	
 	var players = GameObject.FindGameObjectsWithTag("Player");
 	for(var player : GameObject in players) {
 		player.GetComponent.<WhatTheCharacterDoes>().MakeMeSay("I win!!!");
 	}
+	
+	messageBuffer = Time.time;
 }
 
 private function LoseGame() {
+	if(Time.time < messageBuffer + 3)
+		return false;
+	
 	var players = GameObject.FindGameObjectsWithTag("Player");
 	for(var player : GameObject in players) {
 		player.GetComponent.<WhatTheCharacterDoes>().MakeMeSay("Argh!! I lose!!!");
 	}
+	
+	messageBuffer = Time.time;
 }
