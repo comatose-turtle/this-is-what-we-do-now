@@ -19,3 +19,7 @@ function Update () {
 function MakeMeSay(str : String) {
 	speech.PopupText(str);
 }
+
+function PromptTheB() {
+	speech.PromptB();
+}

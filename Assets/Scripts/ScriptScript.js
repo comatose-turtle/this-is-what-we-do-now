@@ -3,12 +3,20 @@
 private var progress : int;
 private var switches : boolean[] = [false, false];
 private var messageBuffer : float;
+private var foundB : boolean = false;
 
 function Start () {
 
 }
 
 function Update () {
+	if(!foundB) {
+		if(Input.GetButtonDown("Fire2"))
+			foundB = true;
+		else if(Time.timeSinceLevelLoad > 5) {
+			PromptForB();
+		}
+	}
 	if(switches[0] && switches[1]) {
 		WinGame();
 	}
@@ -39,7 +47,7 @@ function CollisionDecision(objs : GameObject[]) {
 			switches[1] = true;
 	}
 	
-	if(objs[0].tag == "Player" && objs[1].tag == "Enemy") {
+	if(objs[0].tag == "Player" && objs[1].tag == "Death") {
 		LoseGame();
 	}
 }
@@ -55,9 +63,21 @@ function UncollisionDecision(objs : GameObject[]) {
 	}
 }
 
+private function PromptForB() {
+	if(Time.time < messageBuffer + 3)
+		return;
+	
+	var players = GameObject.FindGameObjectsWithTag("Player");
+	for(var player : GameObject in players) {
+		player.GetComponent.<WhatTheCharacterDoes>().PromptTheB();
+	}
+	
+	messageBuffer = Time.time;
+}
+
 private function WinGame() {
 	if(Time.time < messageBuffer + 3)
-		return false;
+		return;
 	
 	var players = GameObject.FindGameObjectsWithTag("Player");
 	for(var player : GameObject in players) {
@@ -69,7 +89,7 @@ private function WinGame() {
 
 private function LoseGame() {
 	if(Time.time < messageBuffer + 3)
-		return false;
+		return;
 	
 	var players = GameObject.FindGameObjectsWithTag("Player");
 	for(var player : GameObject in players) {
