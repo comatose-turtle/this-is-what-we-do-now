@@ -27,7 +27,6 @@ private function UpdateSprite() {
 	var angle : float = Vector3.Angle(_navAgent.velocity.normalized, Vector3.forward);
 	if(Vector3.Cross(_navAgent.velocity.normalized, Vector3.forward).y > 0)
 		angle = 360 - angle;
-	print(angle);
 	animator.SetInteger("dir", Mathf.Round(angle / 90) % 4);
 	animator.transform.position = transform.position;
 }
