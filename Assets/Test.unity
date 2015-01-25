@@ -518,7 +518,7 @@ Transform:
   m_PrefabInternal: {fileID: 1926138178}
   m_GameObject: {fileID: 489138100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.19999981, y: -1, z: 30}
+  m_LocalPosition: {x: 7.19999981, y: -1, z: 1}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 1323104106}
@@ -975,6 +975,10 @@ Prefab:
       propertyPath: m_Name
       value: Camera2
       objectReference: {fileID: 0}
+    - target: {fileID: 475174, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
   m_RootGameObject: {fileID: 2055976328}
@@ -1379,7 +1383,7 @@ Transform:
   m_PrefabInternal: {fileID: 928891972}
   m_GameObject: {fileID: 1596382887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.19999981, y: -1, z: 30}
+  m_LocalPosition: {x: 7.19999981, y: -1, z: 1}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 2055976329}
@@ -1533,6 +1537,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6bd05d81c7e544eb68b4c8a742ff057f, type: 2}
+    - target: {fileID: 475174, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
   m_RootGameObject: {fileID: 1323104105}
