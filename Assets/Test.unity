@@ -379,7 +379,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -480,6 +479,7 @@ GameObject:
   - 114: {fileID: 284676153}
   - 114: {fileID: 284676156}
   - 114: {fileID: 284676157}
+  - 114: {fileID: 284676158}
   - 114: {fileID: 284676155}
   m_Layer: 0
   m_Name: GameMaster
@@ -515,7 +515,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &284676155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,6 +549,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc9d27781ffb73449b62d222c710f86f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &284676158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: 74c134cfd495085418d66a65f9bfea93,
+    type: 2}
+  m_PrefabInternal: {fileID: 1819681363}
+  m_GameObject: {fileID: 284676152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee69fdbdc525994ca0190027b439870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &312576569
@@ -806,6 +818,10 @@ Prefab:
       propertyPath: m_Name
       value: World1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
+      propertyPath: followDistance
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
   m_RootGameObject: {fileID: 1323104105}
@@ -834,6 +850,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 928891972}
   m_GameObject: {fileID: 450162724}
+  m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
@@ -1031,7 +1048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1002615528}
-  followDistance: 15
+  followDistance: 10
 --- !u!1 &512621337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1174,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 381496140}
   m_GameObject: {fileID: 512621337}
+  m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
@@ -1286,6 +1304,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 928891972}
   m_GameObject: {fileID: 590166605}
+  m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
@@ -1520,7 +1539,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
       propertyPath: m_Color.r
@@ -1562,6 +1581,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 57b0cce8cd1df0d47bd881dcfaf0526f, type: 2}
+    - target: {fileID: 11400002, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
+      propertyPath: followDistance
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
   m_RootGameObject: {fileID: 2055976328}
@@ -1763,6 +1786,7 @@ CanvasGroup:
     type: 2}
   m_PrefabInternal: {fileID: 381496140}
   m_GameObject: {fileID: 1054416727}
+  m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
@@ -1953,7 +1977,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -2251,7 +2274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 42759644}
-  followDistance: 15
+  followDistance: 10
 --- !u!81 &1958945571
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2305,4 +2328,4 @@ Transform:
   - {fileID: 42759644}
   - {fileID: 1958945568}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
