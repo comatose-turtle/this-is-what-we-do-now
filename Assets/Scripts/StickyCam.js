@@ -11,6 +11,6 @@ function Start () {
 
 function Update () {
 	//if(Vector3.Distance(transform.position, target.position + relative) > followDistance){
-		transform.position = Vector3.MoveTowards(transform.position, target.position + relative, Mathf.Max(Vector3.Distance(transform.position, target.position) - followDistance, 0));
+		transform.position = Vector3.MoveTowards(transform.position, target.position + relative, Mathf.Max(Vector3.Distance(transform.position, target.position + relative) - followDistance, 0));
 	//}
 }
