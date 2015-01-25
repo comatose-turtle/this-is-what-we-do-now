@@ -5,6 +5,7 @@ var char1 : WhatTheCharacterDoes;
 var camera2 : Camera;
 var char2 : WhatTheCharacterDoes;
 var scrollSpeed : int = 4;
+var swapStyle : int = 1;
 
 private var audio1 : AudioListener;
 private var audio2 : AudioListener;
@@ -26,12 +27,7 @@ function Update () {
 	}
 	
 	if(camSwapStarted > 0) {
-		var ratio = Mathf.Min((Time.time - camSwapStarted)*scrollSpeed, 1);
-		camera1.rect.x = (swapTo1 ? ratio-1 : -ratio);
-		camera2.rect.x = (swapTo1 ? ratio : 1-ratio);
-		if(ratio == 1) {
-			CamSwapFinish();
-		}
+		CamSwap( Mathf.Min((Time.time - camSwapStarted)*scrollSpeed, 1) );
 	}
 }
 
@@ -45,6 +41,21 @@ private function ToggleCam2(yesno : boolean) {
 	camera2.enabled = yesno;
 	audio2.enabled = yesno;
 	char2.enabled = yesno;
+}
+
+private function CamSwap( ratio : float ) {
+	if ( swapStyle == 1 ) {
+		var swapRect= Rect( 0.5f - ratio/2, 0.5f - ratio/2, ratio, ratio);
+		if ( swapTo1 ) camera1.rect= swapRect;
+		else camera2.rect= swapRect;
+	} else {
+		camera1.rect.x = (swapTo1 ? ratio-1 : -ratio);
+		camera2.rect.x = (swapTo1 ? ratio : 1-ratio);
+	}
+	
+	if(ratio == 1) {
+		CamSwapFinish();
+	}
 }
 
 private function CamSwapInit() {
