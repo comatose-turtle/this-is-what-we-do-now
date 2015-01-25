@@ -4,12 +4,12 @@ var speed : float = 400;
 var speech : SpeechPopup;
 var control : CharacterController;
 
-private var spriteRenderer : SpriteRenderer;
+private var animator : Animator;
 
 function Start () {
 	if(!control)
 		control = GetComponent.<CharacterController>();
-	spriteRenderer = GetComponent.<SpriteRenderer>();
+	animator = GetComponent.<Animator>();
 }
 
 function Update () {
@@ -43,5 +43,5 @@ private function AdjustSprite(moveVec : Vector3) {
 			angel = 0;
 	}
 	
-	spriteRenderer.SetInteger("dir", angel);
+	animator.SetInteger("dir", angel);
 }

@@ -11,7 +11,7 @@ AnimatorController:
   - m_Name: dir
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 0
+    m_DefaultInt: -1
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
@@ -253,12 +253,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110208472}
-      second: []
-    data:
-      first: {fileID: 110238652}
-      second: []
-    data:
       first: {fileID: 0}
       second:
       - {fileID: 110100000}
@@ -267,6 +261,12 @@ StateMachine:
       - {fileID: 110192706}
     data:
       first: {fileID: 110200000}
+      second: []
+    data:
+      first: {fileID: 110238652}
+      second: []
+    data:
+      first: {fileID: 110208472}
       second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
