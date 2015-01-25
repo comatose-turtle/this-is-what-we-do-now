@@ -4,9 +4,12 @@ var camera1 : Camera;
 var char1 : WhatTheCharacterDoes;
 var camera2 : Camera;
 var char2 : WhatTheCharacterDoes;
+var scrollSpeed : int = 4;
 
 private var audio1 : AudioListener;
 private var audio2 : AudioListener;
+private var camSwapStarted : float = -1;
+private var swapTo1 : boolean = false;
 
 function Start () {
 	audio1 = camera1.GetComponent.<AudioListener>();
@@ -17,14 +20,17 @@ function Start () {
 }
 
 function Update () {
-	if(Input.GetButtonDown("Fire2")) {
-		if(camera1.enabled) {
-			ToggleCam1(false);
-			ToggleCam2(true);
-		}
-		else {
-			ToggleCam2(false);
-			ToggleCam1(true);
+	if(Input.GetButtonDown("Fire2") && camSwapStarted == -1) {
+		swapTo1 = camera2.enabled;
+		CamSwapInit();
+	}
+	
+	if(camSwapStarted > 0) {
+		var ratio = Mathf.Min((Time.time - camSwapStarted)*scrollSpeed, 1);
+		camera1.rect.x = (swapTo1 ? ratio-1 : -ratio);
+		camera2.rect.x = (swapTo1 ? ratio : 1-ratio);
+		if(ratio == 1) {
+			CamSwapFinish();
 		}
 	}
 }
@@ -39,4 +45,21 @@ private function ToggleCam2(yesno : boolean) {
 	camera2.enabled = yesno;
 	audio2.enabled = yesno;
 	char2.enabled = yesno;
+}
+
+private function CamSwapInit() {
+	audio1.enabled = audio2.enabled = false;
+	char1.enabled = char2.enabled = true;
+	camera1.enabled = camera2.enabled = true;
+	camSwapStarted = Time.time;
+}
+
+private function CamSwapFinish() {
+	audio1.enabled = swapTo1;
+	audio2.enabled = !swapTo1;
+	char1.enabled = swapTo1;
+	char2.enabled = !swapTo1;
+	camera1.enabled = swapTo1;
+	camera2.enabled = !swapTo1;
+	camSwapStarted = -1;
 }
