@@ -15,3 +15,7 @@ function Update () {
 	if(Input.GetButton("Fire1"))
 		speech.PopupText("A man, a plan, a canal, Panama.");
 }
+
+function MakeMeSay(str : String) {
+	speech.PopupText(str);
+}
