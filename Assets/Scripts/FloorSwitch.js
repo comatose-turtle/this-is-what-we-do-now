@@ -10,6 +10,6 @@ function OnTriggerEnter(other : Collider){
 function OnTriggerExit(other : Collider){
 	if(other.gameObject.CompareTag("Player")){
 		if(GameMaster.instance != null)
-			GameMaster.instance.SendMessage("CollisionUnDecision", [other.gameObject, gameObject]);
+			GameMaster.instance.SendMessage("UncollisionDecision", [other.gameObject, gameObject]);
 	}
 }
