@@ -1,15 +1,23 @@
 ﻿#pragma strict
 
 var matches : GameObject;
+var matchFlame : GameObject;
+var campfire : GameObject;
+var suspiciousWall : GameObject;
+var wall : GameObject;
+var statue : GameObject;
+var lever : GameObject;
 
-private var progress : int = 0;
+private static var progress : int = 0;
 private var switches : boolean[] = [false, false];
 private var messageBuffer : float;
 private var foundB : boolean = false;
 private static var player1Name : String = "";
 private static var player2Name : String = "";
-private var Names = ["John", "Jerry", "David", "Ben", "Melissa", "Katie", "Sam", "Peter", "Jen", "Maria"];
-private var HelpNames = ["MARLON BRANDO", "DON KNOTTS", "MACGUYVER", "ZSA ZSA GABOR", "JFK", "GEORGE BUSH", "SAMUS", "FLYING SPAGHETTI MONSTER", "JENNIFER LOPEZ", "DENZEL WASHINGTON", "BRUCE WILLIS"];
+private var Names = ["John", "Jerry", "David", "Ben", "Melissa", "Katie", "Sam", "Peter", "Jen", "Maria", "Abe"];
+private var HelpNames = ["MARLON BRANDO", "DON KNOTTS", "MACGUYVER", "ZSA ZSA GABOR", "JFK", "GEORGE BUSH", "SAMUS", "FLYING SPAGHETTI MONSTER", "JENNIFER LOPEZ", "DENZEL WASHINGTON", "BRUCE WILLIS", "TINA FEY"];
+private var leverPos : Vector3;
+private var invisStatue : GameObject;
 
 function Start () {
 	if(player1Name == "")
@@ -172,6 +180,7 @@ function GetLine(characterNum : int) {
 			case 26:
 				progress=27;
 				return "It moved? Is there anything behind it?";
+				RevealLever();
 				break;
 			case 28:
 				progress++;
@@ -191,15 +200,39 @@ function CollisionDecision(objs : GameObject[]) {
 	if(objs[0].name == "Player") {
 		if(objs[1].tag == "Switch")
 			switches[0] = true;
+		
 		else if(objs[1].tag == "Matches") {
 			playerScript.HoldThis(objs[1]);
 			progress=12;
 		}
-			
+		
+		else if(objs[1].tag == "Statue") {
+			progress=19;
+			RevealStatue();
+			objs[0].GetComponent.<WhatTheCharacterDoes>().MakeMeSay("What is this stone carving?");
+		}
+		
+		else if(objs[1].tag == "Lever") {
+			progress=30;
+			Application.LoadLevel("Maze01");
+		}
 	}
 	if(objs[0].name == "Player2") {
 		if(objs[1].tag == "Switch")
 			switches[1] = true;
+		
+		else if(objs[1].tag == "SuspiciousWall" && progress>14 && progress<16) {
+			progress=16;
+			SpawnMoreWalls();
+			SpawnStatues();
+			objs[0].GetComponent.<WhatTheCharacterDoes>().MakeMeSay("Hmm...");
+		}
+		
+		else if(objs[1].tag == "Statue" && progress>=19 && progress<=21) {
+			progress=22;
+			objs[1].GetComponent.<Statue>().MoveMeAwayFrom(objs[0].transform);
+		}
+		
 	}
 	
 	if(objs[0].tag == "Player" && objs[1].tag == "Death") {
@@ -220,6 +253,9 @@ function UncollisionDecision(objs : GameObject[]) {
 
 function UseItem(objs : GameObject[]) {
 	if(objs[0].name == "Player" && objs[1].tag == "Matches") {
+		Instantiate(matchFlame, objs[1].transform.position, Quaternion.identity);
+		Destroy(objs[1]);
+		SpawnCampfire();
 		//objs[1].GetComponentInChildren.<ParticleSystem>().enable = true;
 		progress=13;
 	}
@@ -233,6 +269,15 @@ private function PromptForB() {
 	for(var player : GameObject in players) {
 		player.GetComponent.<WhatTheCharacterDoes>().PromptTheB();
 	}
+	
+	messageBuffer = Time.time;
+}
+
+private function PromptForX(player : GameObject) {
+	if(Time.time < messageBuffer + 3)
+		return;
+	
+	player.GetComponent.<WhatTheCharacterDoes>().PromptTheB();
 	
 	messageBuffer = Time.time;
 }
@@ -263,6 +308,37 @@ private function MakePlayersSayAThing(str : String) {
 private function SpawnMatches() {
 	var playpos = GameObject.Find("Player").transform;
 	Instantiate(matches, playpos.position + Vector3(Random.Range(-5, 6), 0, Random.Range(-5, 6)), Quaternion.LookRotation(Vector3(0, -1, 0)));
+}
+
+private function SpawnCampfire() {
+	var playpos = GameObject.Find("Player2").transform;
+	var fire = Instantiate(campfire, playpos.position + Vector3(Random.Range(-5, 6), 0, Random.Range(-5, 6)), Quaternion.LookRotation(Vector3(0, -1, 0)));
+	Instantiate(suspiciousWall, fire.transform.position + Vector3(Random.Range(-3, 4), 0, Random.Range(-3, 4)), Quaternion.identity);
+}
+
+private function SpawnMoreWalls() {
+	var playpos = GameObject.Find("Player").transform;
+	for(var i=0; i<3; i++)
+		Instantiate(wall, playpos.position + Vector3(Random.Range(-5, 6), 0, Random.Range(-5, 6)), Quaternion.identity);
+}
+
+private function SpawnStatues() {
+	var theRot = Quaternion.identity;
+	theRot.SetEulerAngles(60, 0, 0);
+	var playpos = GameObject.Find("Player").transform;
+	var statty = Instantiate(statue, playpos.position + Vector3(Random.Range(-5, 6), 0, Random.Range(-5, 6)), theRot);
+	leverPos = statty.transform.position;
+	playpos = GameObject.Find("Player2").transform;
+	invisStatue = Instantiate(statue, playpos.position + Vector3(Random.Range(-5, 6), 0, Random.Range(-5, 6)), theRot);
+	invisStatue.active = false;
+}
+
+private function RevealStatue() {
+	invisStatue.active = true;
+}
+
+private function RevealLever() {
+	Instantiate(lever, leverPos, Quaternion.LookRotation(Vector3(0, -1, 0)));
 }
 
 private function WinGame() {
