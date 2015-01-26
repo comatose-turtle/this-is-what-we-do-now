@@ -3,12 +3,15 @@
 var Attack : boolean;
 var AttackObject : Transform;
 var animator : Animator;
+var switcher : CamSwitcher;
+var world : int = 1;
 
 private var _navAgent : NavMeshAgent;
 
 function Start () {
 	_navAgent= GetComponent( NavMeshAgent );
 	if ( ! _navAgent ) Debug.LogError("MonsterAgent requires a NavMeshAgent component");
+	switcher = FindObjectOfType(CamSwitcher);
 }
 
 function Update () {
@@ -16,6 +19,18 @@ function Update () {
 		_navAgent.destination= AttackObject.position;
 	}
 	UpdateSprite();
+	if(world == 1){
+		if(!switcher.camera1.enabled)
+			_navAgent.speed = 3;
+		else
+			_navAgent.speed = 5;
+	}
+	else if(world == 2){
+		if(!switcher.camera2.enabled)
+			_navAgent.speed = 3;
+		else
+			_navAgent.speed = 5;
+	}
 }
 
 function OnTriggerEnter(other : Collider) {
