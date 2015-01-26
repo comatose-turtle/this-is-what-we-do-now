@@ -476,6 +476,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matches: {fileID: 100000, guid: 5519074cafb1afb478cb2ac07766ebba, type: 2}
+  matchFlame: {fileID: 150548, guid: 1a65165bc7794484db84a0e7aa268856, type: 2}
+  campfire: {fileID: 100002, guid: 5269cb77df3fd144d826d29ac1c97a60, type: 2}
+  suspiciousWall: {fileID: 100002, guid: 023851bba3e62c7429c6a3e8722e162f, type: 2}
+  wall: {fileID: 100000, guid: dc8ec61556f5e034893c02f60e6f563b, type: 2}
+  statue: {fileID: 100000, guid: 2b9b763b626e60a43914fa9f06a4dab9, type: 2}
+  lever: {fileID: 100000, guid: 9548b0d7ab9893942b74903a62bde258, type: 2}
 --- !u!114 &284676157
 MonoBehaviour:
   m_ObjectHideFlags: 0

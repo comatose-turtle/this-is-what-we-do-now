@@ -8,6 +8,7 @@ var holdNode : Transform;
 private var animator : Animator;
 private var isActivatingItem : boolean = false;
 private var holdingThis : GameObject;
+private var waitToUse : float;
 
 function Start () {
 	if(!control)
@@ -16,14 +17,12 @@ function Start () {
 }
 
 function Update () {
-	isActivatingItem = false;
-	
 	var move : Vector3 = Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime);
 	control.Move(move);
 	AdjustSprite(move);
 	if(Input.GetButtonDown("Fire1"))
 		GameMaster.instance.SendMessage("LinePlease", gameObject);
-	if(Input.GetButtonDown("Fire3") && holdingThis != null)
+	if(Input.GetButtonDown("Fire3") && holdingThis != null && Time.time - waitToUse < 1)
 		GameMaster.instance.SendMessage("UseItem", [gameObject, holdingThis]);
 }
 
@@ -58,4 +57,5 @@ function HoldThis(thing : GameObject) {
 	thing.transform.SetParent(holdNode);
 	thing.transform.localPosition = Vector3.zero;
 	thing.collider.enabled = false;
+	waitToUse = Time.time;
 }
