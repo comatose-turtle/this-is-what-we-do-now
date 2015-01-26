@@ -700,6 +700,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d359e7965fe862c46a87108767484774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animate: 0
+  rotSpeed: 200
+  scaleAmt: 4
+  scaleSpeed: 100
 --- !u!23 &75239668
 Renderer:
   m_ObjectHideFlags: 0
@@ -809,6 +813,10 @@ Prefab:
       propertyPath: AttackObject
       value: 
       objectReference: {fileID: 1002615528}
+    - target: {fileID: 11400000, guid: dd454c66fe41e40c6b5f89c9edde2bf2, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd454c66fe41e40c6b5f89c9edde2bf2, type: 2}
   m_RootGameObject: {fileID: 62628618}
@@ -1557,7 +1565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &284676155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3772,6 +3780,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d359e7965fe862c46a87108767484774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animate: 0
+  rotSpeed: 200
+  scaleAmt: 4
+  scaleSpeed: 100
 --- !u!23 &791857407
 Renderer:
   m_ObjectHideFlags: 0
@@ -3935,7 +3947,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: ca7483dc6b84a294597fdf1aecd7c475, type: 2}
       propertyPath: m_Color.r
@@ -6717,6 +6729,10 @@ Prefab:
       propertyPath: AttackObject
       value: 
       objectReference: {fileID: 42759644}
+    - target: {fileID: 11400000, guid: dd454c66fe41e40c6b5f89c9edde2bf2, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd454c66fe41e40c6b5f89c9edde2bf2, type: 2}
   m_RootGameObject: {fileID: 1869661934}
@@ -7062,7 +7078,7 @@ Transform:
   - {fileID: 42759644}
   - {fileID: 1958945568}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &2058434523
 GameObject:
   m_ObjectHideFlags: 0
