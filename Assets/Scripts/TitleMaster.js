@@ -2,6 +2,10 @@
 
 
 function Update () {
-	if ( Input.GetButtonDown("Jump")  ) Application.LoadLevel("Maze01");
-	else if ( Input.anyKey ) Application.LoadLevel("StartScene");
+	if ( Input.GetKeyDown("l")  ) {
+		ScriptScript.progress = 30;
+		Application.LoadLevel("Maze01");
+	}
+	else if ( Input.anyKey )
+		Application.LoadLevel("StartScene");
 }

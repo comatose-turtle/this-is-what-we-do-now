@@ -8,7 +8,7 @@ var wall : GameObject;
 var statue : GameObject;
 var lever : GameObject;
 
-private static var progress : int = 0;
+static var progress : int = 0;
 private var switches : boolean[] = [false, false];
 private var messageBuffer : float;
 private var foundB : boolean = false;
