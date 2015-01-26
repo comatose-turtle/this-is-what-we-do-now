@@ -119,6 +119,9 @@ function GetLine(characterNum : int) {
 				progress++;
 				return "Oh. Yes.";
 				break;
+			case 30:
+				return "WHAT IS HAPPENING";
+				break;
 			default:
 				return player2Name + "?";
 				break;
@@ -179,12 +182,15 @@ function GetLine(characterNum : int) {
 			case 25:
 			case 26:
 				progress=27;
-				return "It moved? Is there anything behind it?";
 				RevealLever();
+				return "It moved? Is there anything behind it?";
 				break;
 			case 28:
 				progress++;
 				return "Well, go on then.";
+				break;
+			case 30:
+				return player1Name + " Where are we now?";
 				break;
 			default:
 				return player1Name + "?";
@@ -206,7 +212,7 @@ function CollisionDecision(objs : GameObject[]) {
 			progress=12;
 		}
 		
-		else if(objs[1].tag == "Statue") {
+		else if(objs[1].tag == "Statue" && progress < 19) {
 			progress=19;
 			RevealStatue();
 			objs[0].GetComponent.<WhatTheCharacterDoes>().MakeMeSay("What is this stone carving?");
@@ -338,6 +344,7 @@ private function RevealStatue() {
 }
 
 private function RevealLever() {
+print("GO");
 	Instantiate(lever, leverPos, Quaternion.LookRotation(Vector3(0, -1, 0)));
 }
 

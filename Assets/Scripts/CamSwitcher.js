@@ -59,7 +59,7 @@ private function CamSwap( ratio : float ) {
 }
 
 private function CamSwapInit() {
-	audio1.enabled = audio2.enabled = false;
+	audio1.enabled = false;
 	char1.enabled = char2.enabled = true;
 	camera1.enabled = camera2.enabled = true;
 	camSwapStarted = Time.time;
